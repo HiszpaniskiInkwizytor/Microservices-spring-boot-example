@@ -13,28 +13,20 @@ import static org.assertj.core.api.Assertions.*;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class PersonApplicationTests {
+public class ContextConfigurationTests {
 	private Long person1ActualId;
-	private Long person2ActualId;
 
 	@Autowired
 	private
 	PersonRepository personRepository;
 
 	@Before
-	public void setUp(){
+	public void setUp() {
 		person1ActualId = personRepository.save(Person
 				.builder()
 				.firstName("Damian")
-				.lastName("Jakistam")
-				.pesel("997")
-				.build()).getId();
-
-		person2ActualId = personRepository.save(Person
-				.builder()
-				.firstName("Rychu")
-				.lastName("Peja")
-				.pesel("112")
+				.lastName("Mocher")
+				.pesel("70062267884")
 				.build()).getId();
 	}
 
@@ -51,7 +43,6 @@ public class PersonApplicationTests {
 
 	@Test
 	public void testIfRepositoryHaveProperSize(){
-		assertThat(personRepository.count()).isEqualTo(2L);
+		assertThat(personRepository.count()).isEqualTo(1L);
 	}
-
 }

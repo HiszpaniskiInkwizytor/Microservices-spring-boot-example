@@ -22,8 +22,6 @@ public class ApplicationControllerUnitTests {
     PersonRepository personRepository = mock(PersonRepository.class);
     RetardRepository retardRepository = mock(RetardRepository.class);
     PersonService personService = new PersonService(personRepository, retardRepository);
-    ApplicationController applicationController = new ApplicationController(personService);
-    AddPersonController addPersonController = new AddPersonController(personService);
     GetAllRetardsController getAllRetardsController = new GetAllRetardsController(personService);
     GetPersonController getPersonController = new GetPersonController(personService);
     SavePersonController savePersonController = new SavePersonController(personService);

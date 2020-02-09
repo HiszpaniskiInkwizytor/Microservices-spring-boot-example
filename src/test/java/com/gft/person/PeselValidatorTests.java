@@ -8,18 +8,26 @@ public class PeselValidatorTests {
 
     @Test
     public void peselValidator_NullValueGiven_ShouldReturnFalse(){
-        PeselValidator pesel_validator = new PeselValidator();
-        pesel_validator.isValid(null);
+        //given
+        PeselValidator peselValidator = new PeselValidator();
+
+        //when
+        boolean isPeselValid = peselValidator.isValid(null);
+
+        //then
+        assertThat(isPeselValid).isEqualTo(false);
     }
 
     @Test
     public void checkSum_ValidPeselGiven_ShouldReturnTrue(){
         //given
         String pesel = TestDataStructures.createPerson().get().getPesel();
-        //when
-        //then
         PeselValidator peselValidator = new PeselValidator();
-        boolean what = peselValidator.checkSum(pesel);
-        assertThat(what).isEqualTo(true);
+
+        //when
+        boolean isCheckSumValid = peselValidator.checkSum(pesel);
+
+        //then
+        assertThat(isCheckSumValid).isEqualTo(true);
     }
 }
