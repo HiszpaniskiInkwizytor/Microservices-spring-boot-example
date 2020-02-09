@@ -5,7 +5,7 @@ import com.gft.person.request.PersonRequest;
 import com.gft.person.response.PersonResponse;
 
 public class PersonConverter {
-    Person personRequestToPerson(PersonRequest personRequest){
+    public Person personRequestToPerson(PersonRequest personRequest){
         return Person.builder()
                 .firstName(personRequest.getFirstName())
                 .lastName(personRequest.getLastName())
@@ -16,7 +16,7 @@ public class PersonConverter {
                 .build();
     }
 
-    PersonResponse personToPersonResponse(Person person){
+    public PersonResponse personToPersonResponse(Person person){
         return PersonResponse.builder()
                 .firstName(person.getFirstName())
                 .lastName(person.getLastName())

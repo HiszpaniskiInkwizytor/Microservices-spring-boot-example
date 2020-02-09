@@ -1,9 +1,11 @@
-package com.gft.person.processors;
+package com.gft.person.services;
 
+import com.gft.person.command.PersonConverter;
 import com.gft.person.domain.Person;
 import com.gft.person.domain.Retard;
 import com.gft.person.repositories.PersonRepository;
 import com.gft.person.repositories.RetardRepository;
+import com.gft.person.response.PersonResponse;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -16,15 +18,16 @@ public class PersonService {
 
     private PersonRepository personRepository;
     private RetardRepository retardRepository;
-    public PersonService(PersonRepository personRepository, RetardRepository retardRepository) {
+    private PersonConverter personConverter;
+
+    public PersonService(PersonRepository personRepository, RetardRepository retardRepository, PersonConverter personConverter) {
         this.personRepository = personRepository;
         this.retardRepository = retardRepository;
+        this.personConverter = personConverter;
     }
 
-    public Person getPersonById(Long id) {
-        if (personRepository.findById(id).isPresent())
-            return personRepository.findById(id).get();
-        return Person.builder().firstName("Nie").lastName("istnieje").pesel("taki person.").build();
+    public PersonResponse getPersonById(Long id) {
+        return personRepository.findById(id).isPresent() ? personConverter.personToPersonResponse(personRepository.findById(id).get()) : null;
     }
 
     public Person savePerson(Person person){
@@ -45,7 +48,7 @@ public class PersonService {
         return retards.stream().map(retard -> personRepository.findByPesel(retard.getPesel())).collect(Collectors.toList());
     }
 
-    public Retard personIntoRetardTransformer(Person person){
+    private Retard personIntoRetardTransformer(Person person){
         return Retard.builder()
                 .pesel(person.getPesel())
                 .build();
