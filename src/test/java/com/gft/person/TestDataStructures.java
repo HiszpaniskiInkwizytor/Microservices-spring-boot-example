@@ -1,6 +1,6 @@
 package com.gft.person;
 
-import com.gft.person.DBObjects.Person;
+import com.gft.person.domain.Person;
 
 import java.util.Optional;
 

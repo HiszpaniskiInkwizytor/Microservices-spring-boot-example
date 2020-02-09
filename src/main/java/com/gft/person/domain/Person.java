@@ -1,4 +1,4 @@
-package com.gft.person.DBObjects;
+package com.gft.person.domain;
 
 import lombok.*;
 

@@ -1,6 +1,6 @@
 package com.gft.person.repositories;
 
-import com.gft.person.DBObjects.Retard;
+import com.gft.person.domain.Retard;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

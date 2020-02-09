@@ -1,7 +1,7 @@
 package com.gft.person;
 
 
-import com.gft.person.DBObjects.Person;
+import com.gft.person.domain.Person;
 import com.gft.person.controller.*;
 import com.gft.person.processors.PersonService;
 import com.gft.person.repositories.PersonRepository;

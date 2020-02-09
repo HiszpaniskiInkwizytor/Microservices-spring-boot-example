@@ -1,6 +1,6 @@
 package com.gft.person.repositories;
 
-import com.gft.person.DBObjects.Person;
+import com.gft.person.domain.Person;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

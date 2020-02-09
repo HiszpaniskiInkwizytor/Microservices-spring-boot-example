@@ -1,7 +1,7 @@
 package com.gft.person.processors;
 
-import com.gft.person.DBObjects.Person;
-import com.gft.person.DBObjects.Retard;
+import com.gft.person.domain.Person;
+import com.gft.person.domain.Retard;
 import com.gft.person.repositories.PersonRepository;
 import com.gft.person.repositories.RetardRepository;
 import org.springframework.stereotype.Service;
