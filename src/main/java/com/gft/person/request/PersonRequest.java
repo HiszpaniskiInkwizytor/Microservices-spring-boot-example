@@ -14,7 +14,6 @@ public class PersonRequest {
     private String firstName;
     private String lastName;
     private String pesel;
-    private LocalDateTime memberFrom;
     private boolean retard;
 
 }

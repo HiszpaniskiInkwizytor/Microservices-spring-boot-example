@@ -35,7 +35,6 @@ public class PersonService {
         {
             retardRepository.save(personIntoRetardTransformer(person));
         }
-        person.setMemberFrom(LocalDateTime.now());
         return personRepository.save(person);
     }
 
@@ -45,7 +44,9 @@ public class PersonService {
 
     public List<Person> getAllRetards(){
         List<Retard> retards = retardRepository.findAll();
-        return retards.stream().map(retard -> personRepository.findByPesel(retard.getPesel())).collect(Collectors.toList());
+        return retards.stream()
+                .map(retard -> personRepository.findByPesel(retard.getPesel()))
+                .collect(Collectors.toList());
     }
 
     private Retard personIntoRetardTransformer(Person person){

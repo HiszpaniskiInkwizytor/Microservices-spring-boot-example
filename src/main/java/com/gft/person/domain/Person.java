@@ -5,7 +5,6 @@ import lombok.*;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import java.time.LocalDateTime;
 
 @Data
 @Builder
@@ -20,7 +19,6 @@ public class Person {
     private String firstName;
     private String lastName;
     private String pesel;
-    private LocalDateTime memberFrom;
     private boolean retard;
 
 }
